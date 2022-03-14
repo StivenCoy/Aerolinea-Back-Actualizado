@@ -70,7 +70,7 @@ public class PasajeroController {
 			@RequestParam(value="idPasajero", required = false) String idPasajero,
 			@RequestParam(value="millas",required = false) double millas){
 		String millasViajadas= pasajeroService.verificarPasajeroFrecuente(idPasajero,millas);
-		List<String> destinos = new ArrayList();
+		List<String> destinos = new ArrayList<String>();
 		destinos.add(millasViajadas);
 		if(millasViajadas.equals("")) {
 			return ResponseEntity.notFound().build();

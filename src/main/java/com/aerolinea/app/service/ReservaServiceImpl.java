@@ -7,7 +7,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.aerolinea.app.DTO.ReservaInfo;
-import com.aerolinea.app.DTO.VueloInfo;
 import com.aerolinea.app.entity.Reserva;
 import com.aerolinea.app.repository.ReservaRepository;
 
@@ -26,12 +25,6 @@ public class ReservaServiceImpl implements ReservaService{
 
 	@Override
 	public List<Reserva> listarReservas() {
-		//Deberia de sacar solo los datos que piden???
-//		List<Reserva> reservas = reservaRepository.findAll();
-//		for (int i = 0; i < reservas.size(); i++) {
-//			String infoReserva = reservas.get(i).ge;
-//			
-//		}
 		return reservaRepository.findAll();
 	}
 	

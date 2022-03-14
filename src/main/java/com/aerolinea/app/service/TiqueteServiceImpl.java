@@ -72,7 +72,7 @@ public class TiqueteServiceImpl implements TiqueteService{
 	public static int calcularDescuentoPorCantidadVuelos(List<Integer> cantidadVuelos, int porcentageDescuento, Pasajero pasajero ) {
 		int cantidadTotalVuelos = 0;
 		try {
-			cantidadTotalVuelos=cantidadVuelos.get(0)+cantidadVuelos.get(0);
+			cantidadTotalVuelos=cantidadVuelos.get(0)+cantidadVuelos.get(1);
 			System.out.println(cantidadTotalVuelos + "vuelos cantidad");
 			if(cantidadTotalVuelos > 10) {
 				if(pasajero.isFrecuente())

@@ -27,13 +27,13 @@ public class PasajeroServiceImpl implements PasajeroService{
 	}
 
 	@Override
-	public String verificarPasajeroFrecuente(String cedula, double millas) {
+	public String verificarPasajeroFrecuente(String cedula, int millas) {
 		Pasajero pasajeroEncontrado= pasajeroRepository.findByCedula(cedula);
 		String mensaje="No Frecuente";
-		double millasViajadas = 0;
+		int millasViajadas = 0;
 		if(pasajeroEncontrado != null){
 			if(pasajeroEncontrado.isFrecuente() == true) {
-				millasViajadas = pasajeroEncontrado.getMillasViajadas();
+				millasViajadas = (int)pasajeroEncontrado.getMillasViajadas();
 				mensaje="Usted a viajado "+ millasViajadas + 
 						" Millas y con este vuelo llegaria a un total de  "+(millasViajadas+millas) + " millas";
 				return mensaje;

@@ -68,7 +68,7 @@ public class PasajeroController {
 	@GetMapping("/viaje/")
 	public ResponseEntity<?> verificarPasajeroFrecuente(
 			@RequestParam(value="idPasajero", required = false) String idPasajero,
-			@RequestParam(value="millas",required = false) double millas){
+			@RequestParam(value="millas",required = false) int millas){
 		String millasViajadas= pasajeroService.verificarPasajeroFrecuente(idPasajero,millas);
 		List<String> destinos = new ArrayList<String>();
 		destinos.add(millasViajadas);

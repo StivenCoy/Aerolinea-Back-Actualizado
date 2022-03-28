@@ -64,5 +64,10 @@ public class TiqueteServiceTest {
 		assertEquals(10, descuento);
 	}
 	
+	@Test
+	void calcularDescuentos() {
+		int descuento = tiqueteServiceImpl.calcularDescuentoPorCantidadVuelos(cantidadVuelos,0,pasajero);
+		assertEquals(10, descuento);
+	}
 
 }

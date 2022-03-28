@@ -2,11 +2,11 @@ package com.aerolinea.app.service;
 
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.aerolinea.app.DTO.DatosVuelo;
 import com.aerolinea.app.DTO.VueloInfo;
 import com.aerolinea.app.entity.Vuelo;
 import com.aerolinea.app.repository.VueloRepository;
@@ -23,9 +23,9 @@ public class VueloServiceImpl implements VueloService{
 	}
 
 	@Override
-	public List<VueloInfo> buscarVuelos(String origen, String destino, Date fecha, int cantidad) {
+	public List<VueloInfo> buscarVuelos(DatosVuelo datosVuelo) {
 		List<VueloInfo> misVuelos = new ArrayList<>();
-		List<Object[]> vuelos = vueloRepository.listarVuelos(origen, destino, fecha, cantidad);
+		List<Object[]> vuelos = vueloRepository.listarVuelos(datosVuelo.getOrigen(), datosVuelo.getDestino(), datosVuelo.getFecha(), datosVuelo.getCantidad());
 		String tpoEscala="";
 		for (int i =0; i< vuelos.size();i++) {
 			String horaV=(String) vuelos.get(i)[0];

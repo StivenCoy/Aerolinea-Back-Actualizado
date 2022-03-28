@@ -8,11 +8,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.aerolinea.app.DTO.DatosVuelo;
 import com.aerolinea.app.DTO.VueloInfo;
+import com.aerolinea.app.entity.Pasajero;
 import com.aerolinea.app.entity.Vuelo;
 import com.aerolinea.app.service.VueloService;
 
@@ -37,15 +41,9 @@ public class VueloController {
 	 * @param cantidad cantidad de pasajeros
 	 * @return returna la lista de los vuelos
 	 */
-	@GetMapping("/lista/")
-	public ResponseEntity<?> buscarVuelos(
-			@RequestParam(value="fecha") @DateTimeFormat( pattern ="yyyy-MM-dd" ) Date fecha,
-			@RequestParam(value="origen", required = false) String origen,
-			@RequestParam(value="destino",required = false) String destino,
-			@RequestParam(value="cantidad",required = false) int cantidad){
-		List<VueloInfo> vuelos = vueloService.buscarVuelos(origen, destino, fecha, cantidad);
-		
-		System.out.println(" vuelos " + vuelos.size());
+	@PostMapping("/lista/")
+	public ResponseEntity<?> buscarVuelos(@RequestBody DatosVuelo vuelo){
+		List<VueloInfo> vuelos = vueloService.buscarVuelos(vuelo);
 		if(vuelos.isEmpty()){
 			return ResponseEntity.notFound().build();
 		}

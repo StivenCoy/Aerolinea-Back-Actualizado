@@ -14,7 +14,7 @@ public interface ReservaRepository extends JpaRepository<Reserva, Integer>{
 			+ "	v.isEscala as tipoVueloIda, cd.nombre as destino, vv.fecha as fechaRegreso, vv.isEscala as tipoVueloRegreso"
 			+ " from reserva as r inner join vuelo as v on r.vueloida=v.idVuelo "
 			+ " left join vuelo as vv on vv.idVuelo = r.vueloVuelta "
-			+ " inner join ruta as rut on rut.idRuta=v.ruta "
+			+ " inner join ruta as rut on rut.idRuta=v.ruta " 
 			+ " inner join ciudad as co on co.idCiudad=rut.ciudadOrigen"
 			+ " inner join ciudad as cd on cd.idCiudad=rut.ciudadDestino "
 			+ " inner join tiquete as t on r.idReserva=t.reserva "

@@ -15,6 +15,10 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+		
+	<maven.compiler.source>1.8</maven.compiler.source>
+ 	<maven.compiler.target>1.8</maven.compiler.target>
+		
 	</properties>
 	<dependencies>
 		<dependency>
@@ -51,6 +55,13 @@
 			<version>2.0.2-beta</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+		 <groupId>com.apple</groupId>
+		  <artifactId>AppleJavaExtensions</artifactId>
+		   <version>1.4</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -58,7 +69,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				
 			</plugin>
+			
 		</plugins>
 	</build>
 

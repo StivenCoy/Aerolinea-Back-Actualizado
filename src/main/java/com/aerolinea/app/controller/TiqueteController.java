@@ -47,7 +47,7 @@ public class TiqueteController {
 	 * 
 	 * @return retorna el valor en porcentaje del descuento que se le aplicara al pasajero
 	 */
-	@GetMapping("/descuentos")
+	@PostMapping("/descuentos")
 	public ResponseEntity<?> calcularDescuentos(@RequestBody Pasajero pasajero){
 		int totalVuelos = tiqueteService.calcularDescuentos(pasajero);
 		return ResponseEntity.ok(totalVuelos);

@@ -24,6 +24,7 @@ public class CiudadController {
 		this.ciudadService = ciudadService;
 	}
 	
+	
 	/**
 	 * Metodo que busca si una ciudad requiere visa o no 
 	 * @param nombre nombre de la ciudad 

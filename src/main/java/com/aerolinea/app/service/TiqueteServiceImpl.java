@@ -41,14 +41,13 @@ public class TiqueteServiceImpl implements TiqueteService{
 	}
 
 	@Override
-	public int calcularDescuentos(String idPasajero) {
+	public int calcularDescuentos(Pasajero pasajero) {
 		int porcentageDescuento = 0;
 		Date fechaHoy = new Date();
 		fechaHoy.toInstant();
 		Date inicioAnio =  new Date(fechaHoy.getYear(),01,01);
-		List<Integer> cantidadVuelos = tiqueteRepository.contarVuelos(idPasajero, inicioAnio,fechaHoy);
-		System.out.println(idPasajero + "PASAJERO "+ inicioAnio + " año "+ fechaHoy + "fecha hoy");
-		Pasajero pasajero =  pasajeroRepository.findByCedula(idPasajero);
+		List<Integer> cantidadVuelos = tiqueteRepository.contarVuelos(pasajero.getCedula(), inicioAnio,fechaHoy);
+		System.out.println(pasajero.getCedula() + "PASAJERO "+ inicioAnio + " año "+ fechaHoy + "fecha hoy");
 		if(pasajero != null) {
 			if(cantidadVuelos != null ) {
 				porcentageDescuento	= calcularDescuentoPorCantidadVuelos(cantidadVuelos,porcentageDescuento, pasajero);

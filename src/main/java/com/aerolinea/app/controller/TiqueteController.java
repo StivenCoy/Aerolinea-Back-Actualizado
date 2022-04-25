@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.aerolinea.app.entity.Pasajero;
 import com.aerolinea.app.entity.Tiquete;
 import com.aerolinea.app.service.TiqueteService;
 
@@ -43,13 +44,12 @@ public class TiqueteController {
 	 * @param fechaInicio fecha de inicio del año 
 	 * @param fechaFin fecha fin del año 
 	 * @param idPasajero identificador del pasajero 
+	 * 
 	 * @return retorna el valor en porcentaje del descuento que se le aplicara al pasajero
 	 */
 	@GetMapping("/descuentos")
-	public ResponseEntity<?> calcularDescuentos(
-			@RequestBody()                                                
-			@RequestParam(value="idPasajero", required = false) String idPasajero){
-		int totalVuelos = tiqueteService.calcularDescuentos(idPasajero);
+	public ResponseEntity<?> calcularDescuentos(@RequestBody Pasajero pasajero){
+		int totalVuelos = tiqueteService.calcularDescuentos(pasajero);
 		return ResponseEntity.ok(totalVuelos);
 	}
 }
